@@ -11,12 +11,34 @@ export default function Dashboard() {
   const [newName, setNewName] = useState("");
   const [newImage, setNewImage] = useState("");
 
+//   useEffect(() => {
+//     fetch("https://reqres.in/api/users?page=1")
+//       .then((res) => res.json())
+//       .then((data) => setAvatars(data.data.slice(0, 3)));
+//   }, []);
   useEffect(() => {
-    fetch("https://reqres.in/api/users?page=1")
-      .then((res) => res.json())
-      .then((data) => setAvatars(data.data.slice(0, 3)));
+    setAvatars([
+      {
+        id: 1,
+        first_name: "George",
+        last_name: "Bluth",
+        avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+      },
+      {
+        id: 2,
+        first_name: "Janet",
+        last_name: "Weaver",
+        avatar: "https://randomuser.me/api/portraits/men/34.jpg",
+      },
+      {
+        id: 3,
+        first_name: "Emma",
+        last_name: "Wong",
+        avatar: "https://randomuser.me/api/portraits/women/65.jpg",
+      },
+    ]);
   }, []);
-
+  
   const handleAddOrUpdateAvatar = (e) => {
     e.preventDefault();
     const nameParts = newName.trim().split(" ");
